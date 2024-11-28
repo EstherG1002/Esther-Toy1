@@ -61,7 +61,7 @@ function submitForm() {
             }
 
             // 顯示結果
-            document.getElementById('result').innerText = `交通工具：${transport}，里程數：${distance}`;
+            document.getElementById('result').innerText = `交通工具：${transport}，總里程數：${distance}`;
         }
     });
 }
