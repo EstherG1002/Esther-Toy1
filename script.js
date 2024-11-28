@@ -5,12 +5,12 @@ Papa.parse('options.csv', {
     complete: function(results) {
         const data = results.data;
 
-        // 分類數據
+        // 分類
         const transportOptions = data.filter(item => item.Type === 'Transport');
         const startOptions = data.filter(item => item.Type === 'Start');
         const endOptions = data.filter(item => item.Type === 'End');
 
-        // 填充交通工具選項
+        // +交通工具
         const transportSelect = document.getElementById('transport');
         transportOptions.forEach(option => {
             const opt = document.createElement('option');
@@ -19,7 +19,7 @@ Papa.parse('options.csv', {
             transportSelect.appendChild(opt);
         });
 
-        // 填充起點選項
+        // +起點
         const startSelect = document.getElementById('start');
         startOptions.forEach(option => {
             const opt = document.createElement('option');
@@ -28,7 +28,7 @@ Papa.parse('options.csv', {
             startSelect.appendChild(opt);
         });
 
-        // 填充終點選項
+        // +終點
         const endSelect = document.getElementById('end');
         endOptions.forEach(option => {
             const opt = document.createElement('option');
@@ -44,7 +44,7 @@ function submitForm() {
     const start = document.getElementById('start').value;
     const end = document.getElementById('end').value;
 
-    // 讀取distances.csv文件並解析
+    // 讀取distances.csv文件並顯示結果
     Papa.parse('distances.csv', {
         download: true,
         header: true,
@@ -52,7 +52,7 @@ function submitForm() {
             const data = results.data;
             let distance = '無法找到相應的里程數';
 
-            // 查找對應的里程數
+            // 查詢對應里程數
             for (let i = 0; i < data.length; i++) {
                 if (data[i].Transport === transport && data[i].Start === start && data[i].End === end) {
                     distance = `${data[i].Distance} 公里`;
