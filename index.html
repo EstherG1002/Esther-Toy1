@@ -6,7 +6,7 @@
     <title>遠東生技集團-大眾運輸工具里程查詢</title>
     <style>
         .paragraph {
-            line-height: 1.1; /*設置行距為0.5倍字體大小*/
+            line-height: 1.1; /*設置行距為1.1倍字體大小*/
         }
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,10 @@
         form {
             margin-top: 20px;
         }
-        @media (max-width: 600px) {
+        select { 
+            height: 40px; /*設定下拉式選單的高度*/
+        }
+            @media (max-width: 600px) {
             form label, form select, form button {
                 display: block;
                 width: 100%;
