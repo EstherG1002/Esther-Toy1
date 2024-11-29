@@ -86,6 +86,7 @@ function submitForm() {
 // 綁定事件以便在選擇交通工具時更新起點和終點選項
 document.getElementById('transport').addEventListener('change', updateOptions);
 
+
 // 距離資訊資料來源
 // '機捷：https://data.gov.tw/dataset/128436'
 // '北捷：https://data.gov.tw/dataset/128418'
