@@ -1,14 +1,14 @@
-// 儲存解析後的資料
+/儲存解析後的資料/
 let dataCache;
 
-// 讀取options.csv文件並解析，動態填充選項
+/讀取options.csv文件並解析，動態填充選項/
 Papa.parse('options.csv', {
     download: true,
     header: true,
     complete: function(results) {
         dataCache = results.data;
 
-        // 填充交通工具選項
+        /填充交通工具選項/
         populateTransportOptions(dataCache);
     }
 });
@@ -24,7 +24,7 @@ function populateTransportOptions(data) {
         transportSelect.appendChild(opt);
     });
 
-    // 初始化時更新起點和終點選項
+    /初始化時更新起點和終點選項/
     updateOptions();
 }
 
@@ -33,7 +33,7 @@ function updateOptions() {
     const startSelect = document.getElementById('start');
     const endSelect = document.getElementById('end');
 
-    // 清空現有選項
+    /清空現有選項/
     startSelect.innerHTML = '';
     endSelect.innerHTML = '';
 
@@ -60,7 +60,7 @@ function submitForm() {
     const start = document.getElementById('start').value;
     const end = document.getElementById('end').value;
 
-    // 讀取distances.csv文件並顯示結果
+    /讀取distances.csv文件並顯示結果/
     Papa.parse('distances.csv', {
         download: true,
         header: true,
@@ -68,16 +68,16 @@ function submitForm() {
             const data = results.data;
             let distance = '無法找到相應的里程數';
 
-            // 查詢對應里程數
+            /查詢對應里程數/
             for (let i = 0; i < data.length; i++) {
                 if (data[i].Transport === transport && data[i].Start === start && data[i].End === end) {
                     distance = `${data[i].Distance} 公里`;
                     break;
                 }
             }
-
-            // 顯示結果
-            document.getElementById('result').innerText = `交通工具：${transport}，總里程數：${distance}`;
+            /顯示結果/
+            document.getElementById('result').innerText = `交通工具：${transport} `;
+            document.getElementById('result').innerText = `總里程數：${distance}`;            
         }
     });
 }
