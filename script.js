@@ -8,7 +8,7 @@ Papa.parse('options.csv', {
     complete: function(results) {
         dataCache = results.data;
 
-        // 填充交通工具選項
+        // 交通工具選項
         populateTransportOptions(dataCache);
     }
 });
