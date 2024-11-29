@@ -19,13 +19,16 @@
         }
         select {
             height: 30px; /*設定下拉式選單的高度*/
-            font-size: 12px; /*設定文字大小為12*/
+            font-size: 14px; /*設定文字大小為12*/
         button {
-            font-size: 12px;
+            font-size: 14px;
             padding: 10px 12px;
         }
+        .from-item {
+        margin-bottom: 3px;
+        }
         #result {
-            margin-top: 0px;
+            margin-top: 0px; /*移除結果區域與表單的行距*/
             padding: 10px;
             background-color: #b0c4de;
             line-height: 1.1; /*調整結果顯示區域的行距*/
@@ -50,16 +53,21 @@
         <p>※此網頁為公司內部參考資料，嚴禁外傳。</p>
     </div>
 
-    <form>
-        <label for="transport">交通工具：</label>
-        <select id="transport" name="transport" onchange="updateOptions()"></select>
-        <label for="start">起點：</label>
-        <select id="start" name="start"></select>
-        <label for="end">終點：</label>
-        <select id="end" name="end"></select>
-
-        <button type="button" onclick="submitForm()">查詢</button>
-    </form>
+   <form>
+       <div class="form-item"> 
+           <label for="transport">交通工具：</label> 
+           <select id="transport" name="transport" onchange="updateOptions()"></select>
+       </div> 
+       <div class="form-item"> 
+           <label for="start">起點：</label> 
+           <select id="start" name="start"></select>
+       </div> 
+       <div class="form-item"> 
+           <label for="end">終點：</label>
+           <select id="end" name="end"></select>
+       </div> 
+       <button type="button" onclick="submitForm()">查詢</button>
+   </form>
 
     <div id="result"></div>
     
