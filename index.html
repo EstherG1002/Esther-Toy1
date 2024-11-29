@@ -14,31 +14,31 @@
         form {
             margin-top: 10px; /*調整表單上方行距*/
             margin-bottom: 0px; /*調整表單下方行距*/
-            background-color: #b0c4de;
+            background-color: #b0c4de; /*設定表單區塊的背景色*/
             padding: 15px; /*增加內邊距，使內容與邊界有適當距離*/
         }
         select {
             height: 30px; /*設定下拉式選單的高度*/
-            font-size: 14px; /*設定文字大小為12*/
+            font-size: 14px; /*設定文字大小為14*/
         }
         button {
-            font-size: 14px; /* 設定按鈕文字大小 */ 
-            padding: 10px 12px; 
+            font-size: 14px; /*設定按鈕文字大小*/
+            padding: 10px 12px;
         }
         .form-item {
             margin-bottom: 3px;
         }
         #result {
-            margin-top: 0px; /* 移除結果區域與表單的行距 */
+            margin-top: 0px; /*移除結果區域與表單的行距*/
             padding: 10px;
             background-color: #b0c4de; /*設定結果區域的背景色*/
-            line-height: 1.1; /*調整結果顯示區域的行距*/ 
-        }
+            line-height: 1.1; /*調整結果顯示區域的行距*/
+        } 
         @media (max-width: 600px) {
             form label, form select, form button {
                 display: block;
                 width: 100%;
-                margin-bottom: 10px; 
+                margin-bottom: 10px;
             }
         } 
     </style>
@@ -54,21 +54,21 @@
         <p>※此網頁為公司內部參考資料，嚴禁外傳。</p>
     </div>
 
-   <form>
-       <div class="form-item"> 
-           <label for="transport">交通工具：</label> 
-           <select id="transport" name="transport" onchange="updateOptions()"></select>
-       </div> 
-       <div class="form-item"> 
-           <label for="start">起點：</label> 
-           <select id="start" name="start"></select>
-       </div> 
-       <div class="form-item"> 
-           <label for="end">終點：</label>
-           <select id="end" name="end"></select>
-       </div> 
-       <button type="button" onclick="submitForm()">查詢</button>
-   </form>
+    <form>
+        <div class="form-item"> 
+            <label for="transport">交通工具：</label> 
+            <select id="transport" name="transport" onchange="updateOptions()"></select>
+        </div> 
+        <div class="form-item"> 
+            <label for="start">起點：</label> 
+            <select id="start" name="start"></select>
+        </div> 
+        <div class="form-item"> 
+            <label for="end">終點：</label>
+            <select id="end" name="end"></select>
+        </div> 
+        <button type="button" onclick="submitForm()">查詢</button>
+    </form>
 
     <div id="result"></div>
     
