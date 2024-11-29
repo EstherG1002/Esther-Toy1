@@ -12,8 +12,8 @@
             font-family: Arial, sans-serif;
         }
         form {
-            margin-top: 10px;
-            min-height: 10px;
+            margin-top: 0; /移除頂部 margin/
+            margin-bottom: 0; /移除底部 margin/
         }
         form label,
         form select,
@@ -28,18 +28,18 @@
             height: 30px; /設定下拉式選單的高度/
             font-size: 14px; /設定文字大小為14像素/
         }
-            @media (max-width: 600px) {
+        #result {
+            margin-top: 10px;
+            padding: 10px;
+            line-height: 1.5; /* 調整結果顯示區域的行距以提高可讀性 */
+        } 
+        @media (max-width: 600px) {
             form label, form select, form button {
                 display: block;
                 width: 100%;
                 margin-bottom: 10px;
             }
-        }
-        #result {
-            margin-top: 10px;
-            padding: 10px;
-            line-height: 1.5; /* 調整結果顯示區域的行距以提高可讀性 */
-        }        
+        } 
     </style>
 </head>
 <body>
