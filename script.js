@@ -1,43 +1,59 @@
+// 儲存解析後的資料
+let dataCache;
+
 // 讀取options.csv文件並解析，動態填充選項
 Papa.parse('options.csv', {
     download: true,
     header: true,
     complete: function(results) {
-        const data = results.data;
+        dataCache = results.data;
 
-        // 分類
-        const transportOptions = data.filter(item => item.Type === 'Transport');
-        const startOptions = data.filter(item => item.Type === 'Start');
-        const endOptions = data.filter(item => item.Type === 'End');
-
-        // +交通工具
-        const transportSelect = document.getElementById('transport');
-        transportOptions.forEach(option => {
-            const opt = document.createElement('option');
-            opt.value = option.Value;
-            opt.text = option.Value;
-            transportSelect.appendChild(opt);
-        });
-
-        // +起點
-        const startSelect = document.getElementById('start');
-        startOptions.forEach(option => {
-            const opt = document.createElement('option');
-            opt.value = option.Value;
-            opt.text = option.Value;
-            startSelect.appendChild(opt);
-        });
-
-        // +終點
-        const endSelect = document.getElementById('end');
-        endOptions.forEach(option => {
-            const opt = document.createElement('option');
-            opt.value = option.Value;
-            opt.text = option.Value;
-            endSelect.appendChild(opt);
-        });
+        // 填充交通工具選項
+        populateTransportOptions(dataCache);
     }
 });
+
+function populateTransportOptions(data) {
+    const transportOptions = data.filter(item => item.Type === 'Transport');
+    const transportSelect = document.getElementById('transport');
+
+    transportOptions.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option.Value;
+        opt.text = option.Value;
+        transportSelect.appendChild(opt);
+    });
+
+    // 初始化時更新起點和終點選項
+    updateOptions();
+}
+
+function updateOptions() {
+    const transport = document.getElementById('transport').value;
+    const startSelect = document.getElementById('start');
+    const endSelect = document.getElementById('end');
+
+    // 清空現有選項
+    startSelect.innerHTML = '';
+    endSelect.innerHTML = '';
+
+    const startOptions = dataCache.filter(item => item.Type === 'Start' && item.Transport === transport);
+    const endOptions = dataCache.filter(item => item.Type === 'End' && item.Transport === transport);
+
+    startOptions.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option.Value;
+        opt.text = option.Value;
+        startSelect.appendChild(opt);
+    });
+
+    endOptions.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option.Value;
+        opt.text = option.Value;
+        endSelect.appendChild(opt);
+    });
+}
 
 function submitForm() {
     const transport = document.getElementById('transport').value;
@@ -65,3 +81,6 @@ function submitForm() {
         }
     });
 }
+
+// 綁定事件以便在選擇交通工具時更新起點和終點選項
+document.getElementById('transport').addEventListener('change', updateOptions);
