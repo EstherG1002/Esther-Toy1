@@ -6,21 +6,27 @@
     <title>遠東生技集團-大眾運輸工具里程查詢</title>
     <style>
         .paragraph {
-            line-height: 1.1; /*設置行距為1.1倍字體大小*/
+            line-height: 1.1; /設置行距為1.1倍字體大小/
         }
         body {
             font-family: Arial, sans-serif;
         }
         form {
-            margin-top: 14px;
-            min-height: 14px;
+            margin-top: 10px;
+            min-height: 10px;
+        }
+        form label,
+        form select,
+        form button {
+            margin-top: 5px; /控制各元素間的上邊距/
+            margin-bottom: 5px; /控制各元素間的下邊距/
         }
         button {
-            margin-bottom: 14px; /* 增加底部間距 */
+            margin-bottom: 10px; /調整按鈕底部間距/
         }
-        select { 
-            height: 30px; /*設定下拉式選單的高度*/
-            font-size: 14px; /* 設定文字大小為14像素 */
+        select {
+            height: 30px; /設定下拉式選單的高度/
+            font-size: 14px; /設定文字大小為14像素/
         }
             @media (max-width: 600px) {
             form label, form select, form button {
@@ -29,6 +35,11 @@
                 margin-bottom: 10px;
             }
         }
+        #result {
+            margin-top: 14px;
+            padding: 10px;
+            line-height: 1.5; /* 調整結果顯示區域的行距以提高可讀性 */
+        }        
     </style>
 </head>
 <body>
