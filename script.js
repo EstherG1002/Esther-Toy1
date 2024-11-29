@@ -1,6 +1,5 @@
 /儲存解析後的資料/
 let dataCache;
-
 /讀取options.csv文件並解析，動態填充選項/
 Papa.parse('options.csv', {
     download: true,
@@ -12,7 +11,6 @@ Papa.parse('options.csv', {
         populateTransportOptions(dataCache);
     }
 });
-
 function populateTransportOptions(data) {
     const transportOptions = data.filter(item => item.Type === 'Transport');
     const transportSelect = document.getElementById('transport');
@@ -82,5 +80,9 @@ function submitForm() {
     });
 }
 
-// 綁定事件以便在選擇交通工具時更新起點和終點選項
+/綁定事件以便在選擇交通工具時更新起點和終點選項/
 document.getElementById('transport').addEventListener('change', updateOptions);
+
+/距離資訊資料來源/
+/'機捷：https://data.gov.tw/dataset/128436'/
+/'北捷：https://data.gov.tw/dataset/128418'/
